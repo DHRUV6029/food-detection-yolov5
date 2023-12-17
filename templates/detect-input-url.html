@@ -129,56 +129,11 @@
                 </div>
             </div>
         </div>
-        {% block content %}
-        {% if not error_msg %}
-        <div id='result-content'>
-            <div class="panel panel-default result-panel">
-                <div class="panel-body w3-card">
-                    <div style="text-align: center;font-size:20px;">
-                        <b>{{out_name}}</b>
-                    </div>
-                    <br/>
-                    {% if output_type == 'detection' %}
-                        <a href="{{url_for('static', filename='assets/detections/' + fname)}}" target="_new"><img src="{{url_for('static', filename='assets/detections/' + fname)}}" class="upload-image-thumb" style="display: block;margin-left: auto;margin-right: auto;width: 640px; height: 480px"></a>
-                    {% elif output_type == 'semantic' %}
-                      <a href="{{url_for('static', filename='assets/segmentations/' + segname)}}" target="_new"><img src="{{url_for('static', filename='assets/segmentations/' + segname)}}" class="upload-image-thumb" style="display: block;margin-left: auto;margin-right: auto;width: 640px; height: 480px"></a>
-                    {% endif %}
-                    <label id="csv_file" style="display:none">{{csv_name}}</label>
-                    <label id="csv_file2" style="display:none">{{csv_name2}}</label>
-
-                </div>
-            </div>
-
-            {% if filetype == 'image' and output_type == 'detection' %}
-            <div class="panel panel-default result-panel">
-                <div class="panel-body w3-card">
-                    <div  id="display-chart" style="text-align:center; font-size:20px;">
-                        <b>Display Chart</b>
-                    </div>
-                    <select style="margin-top: 1em" class="form-control-sm" value="2" onfocus="this.selectedIndex = -1;" onchange="getChart(this);" >
-                        <option value="1">Food Names</option>
-                        <option value="2">Nutritional Info</option>
-                    </select>
-                    
-                    <!-- <div id="image-result"></div> -->
-                    
-                    <canvas id="container1" style="width:100%; height:480px; display:none"></canvas>
-                    <canvas id="container2" style="width:100%; height:480px; display:none"></canvas>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-        {% endif %}
-        {% endblock %}
+      
     </div>
 
 
     <footer style="position: absolute;right: 0;left: 0;padding: 1rem;text-align: center; box-sizing: border-box;z-index:150;" class="w3-card w3-container w3-padding-64 panel-body panel panel-default result-panel w3-light-gray w3-center w3-xlarge">
-    
-      <a href="https://github.com/lannguyen0910/food-detection-yolov5" target="_blank"><i class="fab fa-github w3-hover-opacity"></i></a>
-      <p class="w3-medium" style="font-weight: bold;">Created by <a href="https://github.com/kaylode/"
-          target="_blank" style="text-decoration: none;">kaylode</a> and <a href="https://github.com/lannguyen0910/"
-          target="_blank" style="text-decoration: none;">lannguyen</a></p>
 
     </footer>
 
